@@ -1,0 +1,38 @@
+﻿@model List<Alumno.Models.ViewModels.ListTablaViewModels>
+@{
+    ViewBag.Title = "Datos Alumno";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="row" style="text-align:right">
+	<a href="~/Tabla/Nuevo" class="btn btn-primary">Nuevo registro</a>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<table class="table">
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Calificacion</th>
+				<th>Fecha</th>
+			</tr>
+			@foreach (var oElemento in Model)
+			{
+				<tr>
+					<td>@oElemento.Id</td>
+					<td>@oElemento.NombreAlumno</td>
+					<td>@oElemento.ApellidoAlumno</td>
+					<td>@oElemento.CalificacionAlumno</td>
+					<td>@oElemento.Fecha</td>
+					<td>
+						<a class="btn btn-default" href="~/Tabla/Editar/@oElemento.Id">Editar</a>
+						<a class="btn btn-danger" href="~/Tabla/Eliminar/@oElemento.Id">Eliminar</a>
+					</td>
+				</tr>
+			}
+		</table>
+
+	</div>
+
+</div>
